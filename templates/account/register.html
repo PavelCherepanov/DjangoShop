@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block registration %}
+<div class="container">
+    <div class="products-catagories-area clearfix">
+        <div class="amado-pro-catagory clearfix">
+           
+            <h2>Регистрация</h2>
+            <form method="POST" action="{% url 'register' %} ">
+                {% csrf_token %}
+
+                {% for field in form %}
+                    <div class="form-group">
+                        {{ field }}
+                        {% if field.help_text %}
+                        <small class="form-text text-muted">{{ field.help_text|safe }}</small>
+                        {% endif %}
+                        <small class="form-text">{{ field.errors }}</small>
+                    </div>
+                {% endfor %}
+
+                {{ form.non_field_errors }}
+
+                <p><div class="g-recaptcha" data-sitekey="6LcIs3YiAAAAADEFYnbcAS0iKL-Qy_5LIOV6Ca0f"></div></p>
+                <button type="submit" class="btn btn-primary">Sign Up</button>
+            </form>
+                        
+        </div>
+    </div>
+</div>
+{% endblock %}

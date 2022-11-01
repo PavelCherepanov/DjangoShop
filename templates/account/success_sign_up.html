@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block success_sign_up %}
+	<!-- Спасибо -->
+  	<section>
+		{% if name %}
+  		<div class="container">
+  			<CENTER style = 'margin-top: 35%; margin-bottom: 35%;'><h1>{{ name }}, спасибо за регистрацию </h1></CENTER>
+  		</div>
+        {% endif %}
+  	</section>
+    
+  	<!-- Спасибо -->
+{% endblock %}
