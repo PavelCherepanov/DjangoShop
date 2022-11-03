@@ -3,16 +3,21 @@
 
 {% block thanks %}
 	<!-- Спасибо -->
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+
+			
   	<section>
 		{% if name %}
-  		<div class="container">
-  			<CENTER style = 'margin-top: 35%; margin-bottom: 35%;'><h1>{{ name }}, cпасибо за заявку!</h1></CENTER>
-  		</div>
+				<center><h1>{{ name }}, cпасибо за заявку!</h1></center>
 		{% else %}
-		<div class="container">
-  			<CENTER style = 'margin-top: 35%; margin-bottom: 35%;'><h1>Заявка</h1></CENTER>
-  		</div>
+				<center><h1>Заявка</h1></center>
 		{% endif %}
   	</section>
+
+</div>
+</div>
+</div>
   	<!-- Спасибо -->
 {% endblock %}
