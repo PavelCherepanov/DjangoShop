@@ -7,6 +7,11 @@ from django.shortcuts import render
 from django.contrib.sites.shortcuts import get_current_site 
 from .models import Profile
 from telegramBot.sendmessage import sendRegistrationTelegram
+from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
+from django.utils.encoding import force_bytes, force_str
+from django.views.decorators.http import require_http_methods
+from django.template.loader import render_to_string
+from accounts.tokens import account_activation_token
  
 def getUserIp(request):
     x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
@@ -33,8 +38,16 @@ def signup(request):
             profile.ip_user = getUserIp(request)
             profile.telegram_name = telegram_name
             profile.save()
-
-            sendRegistrationTelegram(tg_name=telegram_name)
+            message = 'http://' + site.domain + '/activate/'+ urlsafe_base64_encode(force_bytes(user.pk)) + "/" + account_activation_token.make_token(user)
+            # message = render_to_string('registration/activate_account_mail.html', {
+            #     'user': user,
+            #     'protocol': 'http',
+            #     'domain': site.domain,
+            #     'uid': urlsafe_base64_encode(force_bytes(user.pk)),
+            #     'token': account_activation_token.make_token(user),
+            # })  
+            print(message)
+            sendRegistrationTelegram(tg_name=telegram_name, tg_message=message)
             
         else:
             return render(request, 'registration/signup.html', {'formTelegram':UserSignUpFormTelegram,'form': form})

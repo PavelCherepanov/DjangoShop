@@ -28,12 +28,12 @@ def sendCrmTelegram(tg_name, tg_email):
     else:
         pass
 
-def sendRegistrationTelegram(tg_name):
+def sendRegistrationTelegram(tg_name, tg_message):
     if TelegramSettings.objects.get(pk=2):
         settings = TelegramSettings.objects.get(pk=2)
         token = str(settings.tg_token)
         chat_id = str(tg_name)
-        text = str(settings.tg_message)
+        text = str(settings.tg_message + tg_message)
         api = "https://api.telegram.org/bot"+token+"/sendMessage"
         text = text + tg_name + "\n" 
         try:
