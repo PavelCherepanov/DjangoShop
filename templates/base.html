@@ -76,8 +76,15 @@
                 <!-- <li><a href="/product-details">Product</a></li> -->
                 <li><a href="/cart">Cart</a></li>
                 <li><a href="/checkout">Checkout</a></li>
+                {% if user.is_authenticated %}
+                <li>Hi, {{user.username}}</li>
+                <li><a href="{% url 'profile' %}">Profile</a></li>
+                <li><a href="{% url 'logout' %}">Log out</a></li>
+                {% else %}
+                <li><a href="{% url 'profile' %}">Profile</a></li>
                 <li><a href="/accounts/signup">Sign Up</a></li>
                 <li><a href="/accounts/login">Login In</a></li>
+                {% endif %}
             </ul>
         </nav>
         <!-- Button Group -->

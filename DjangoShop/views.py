@@ -8,6 +8,7 @@ def index_page(request):
     products_list = Product.objects.all()
     form = SubscribeForm()
     dict_object = {'products_list':products_list,'form':form }  
+
     return render(request, 'index.html', dict_object)
 
 def product_page(request, id):

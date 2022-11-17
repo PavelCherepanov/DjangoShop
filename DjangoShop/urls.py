@@ -29,7 +29,7 @@ urlpatterns = [
     # path("register/", registration.register, name='register'),
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/', include('accounts.urls')),
-    path('activate/<uidb64>/<token>', activate.activate, name='activate'),
+    path('activate/<slug:uidb64>/<slug:token>/', activate.activate, name='activate'),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
