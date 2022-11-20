@@ -19,6 +19,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from . import views
 from accounts import activate
+from shop.views import  shop_page
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,6 +30,7 @@ urlpatterns = [
     # path("register/", registration.register, name='register'),
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/', include('accounts.urls')),
+    path('shop/', shop_page),
     path('activate/<uidb64>/<token>', activate.activate, name='activate'),
 ]
 if settings.DEBUG:
