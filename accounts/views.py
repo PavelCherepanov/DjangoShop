@@ -16,6 +16,7 @@ def getUserIp(request):
     else:
         ip = request.META.get('REMOTE_ADDR')
     return ip
+    
 @require_http_methods(["GET", "POST"])
 def signup(request):
     render(request, 'registration/signup.html', {'formTelegram':UserSignUpFormTelegram,'form': UserSignUpForm()})
