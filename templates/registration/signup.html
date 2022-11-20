@@ -20,7 +20,7 @@
                             {% if field.help_text %}
                             <small class="form-text text-muted">{{ field.help_text|safe }}</small>
                             {% endif %}
-                            <small class="form-text">{{ field.errors }}</small>
+                            <small class="form-text color: red">{{ field.errors }}</small>
                         {% endfor %}
                     </div>
                 

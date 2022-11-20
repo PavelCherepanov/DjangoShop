@@ -2,7 +2,17 @@
 {% load static %}
 
 {% block profile %}
-<p>Logged out!</p>
+<div class="container">
+    <div class="products-catagories-area clearfix">
+        <div class="amado-pro-catagory clearfix">
+<p><h3>Username</h3>
+{{user.username}}</p>
+<p><h3>Name</h3>
+{{user.first_name}}</p>
+<p><h3>Email</h3>
+{{user.email}}</p>
 
-<a href="{% url 'login'%}">Click here to login again.</a>
+</div>
+</div>
+</div>
 {% endblock %}
