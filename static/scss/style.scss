@@ -1467,7 +1467,7 @@ img {
             color: #959595;
         }
     }
-    &.color {
+    .color {
         .widget-desc ul {
             @include flex-wrap(wrap);
             li {
@@ -1484,7 +1484,7 @@ img {
                     z-index: 1;
                     box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
                     &.color1 {
-                        background-color: $white-color;
+                        background-color: #030303;
                     }
                     &.color2 {
                         background-color: #969696;

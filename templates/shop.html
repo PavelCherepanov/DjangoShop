@@ -13,13 +13,9 @@
                 <!--  Catagories  -->
                 <div class="catagories-menu">
                     <ul>
-                        <li class="active"><a href="#">Chairs</a></li>
-                        <li><a href="#">Beds</a></li>
-                        <li><a href="#">Accesories</a></li>
-                        <li><a href="#">Furniture</a></li>
-                        <li><a href="#">Home Deco</a></li>
-                        <li><a href="#">Dressings</a></li>
-                        <li><a href="#">Tables</a></li>
+                        {% for obj in CategoryManagement_list %}
+                        <li><a href="#">{{obj.category_name}}</a></li>
+                        {% endfor %}
                     </ul>
                 </div>
             </div>
@@ -33,31 +29,13 @@
                 <h6 class="widget-title mb-30">Brands</h6>
 
                 <div class="widget-desc">
+                     {% for obj in BrandManagement_list %}
                     <!-- Single Form Check -->
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="amado">
-                        <label class="form-check-label" for="amado">Amado</label>
+                        <input class="form-check-input" type="checkbox" value="" id={{obj.id}}>
+                        <label class="form-check-label" for={{obj.id}}>{{obj.brand_name}}</label>
                     </div>
-                    <!-- Single Form Check -->
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="ikea">
-                        <label class="form-check-label" for="ikea">Ikea</label>
-                    </div>
-                    <!-- Single Form Check -->
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="furniture">
-                        <label class="form-check-label" for="furniture">Furniture Inc</label>
-                    </div>
-                    <!-- Single Form Check -->
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="factory">
-                        <label class="form-check-label" for="factory">The factory</label>
-                    </div>
-                    <!-- Single Form Check -->
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="artdeco">
-                        <label class="form-check-label" for="artdeco">Artdeco</label>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
             <!-- ##### Single Widget ##### -->
@@ -67,14 +45,9 @@
 
                 <div class="widget-desc">
                     <ul class="d-flex">
-                        <li><a href="#" class="color1"></a></li>
-                        <li><a href="#" class="color2"></a></li>
-                        <li><a href="#" class="color3"></a></li>
-                        <li><a href="#" class="color4"></a></li>
-                        <li><a href="#" class="color5"></a></li>
-                        <li><a href="#" class="color6"></a></li>
-                        <li><a href="#" class="color7"></a></li>
-                        <li><a href="#" class="color8"></a></li>
+                        {% for obj in ColorManagement_list %}
+                        <li><a href="#" class="{{obj.color_name_value}}"></a></li>
+                        {% endfor %}
                     </ul>
                 </div>
             </div>
@@ -140,6 +113,8 @@
                 </div>
 
                  <div class="row">
+
+
                     {% for obj in products_list %}
                     <!-- Single Product Area -->
                     <div class="col-12 col-sm-6 col-md-12 col-xl-6">
@@ -149,7 +124,10 @@
                             <div class="product-img">
                                 <img src="{{obj.product_img.url}}" alt="{{obj.product_name}}">
                                 <!-- Hover Thumb -->
-                                <img class="hover-img" src="{{obj.product_img.url}}" alt="{{obj.product_name}}">
+                                <div class="hover-content">
+                                <img class="hover-img" src="{{obj.product_img_hover.url}}" alt="{{obj.product_name}}">
+                                </div>
+
                             </div>
 
                             <!-- Product Description -->
@@ -157,9 +135,9 @@
                                 <!-- Product Meta Data -->
                                 <div class="product-meta-data">
                                     <div class="line"></div>
-                                    <p class="product-price">$180</p>
+                                    <p class="product-price">{{obj.product_price}}₽</p>
                                     <a href="product-details.html">
-                                        <h6>Modern Chair</h6>
+                                        <h6>{{obj.product_name}}</h6>
                                     </a>
                                 </div>
 
