@@ -1,8 +1,8 @@
-from decimal import Decimal
 # from django.conf import settings
 # from management.models import Product
 from DjangoShop import settings
 from management.models import Product
+from decimal import Decimal
 
 class Cart(object):
 
@@ -52,12 +52,6 @@ class Cart(object):
             item['price'] = Decimal(item['price'])
             item['total_price'] = item['price'] * item['quantity']
             yield item
-
-    def getTotalPrice(self):
-        totalPrice = 0
-        for p in self.cart:
-            totalPrice += Decimal(self.cart[p]['price'])*int(self.cart[p]['quantity'])
-        return totalPrice
 
     def clear(self):
         del self.session[settings.CART_SESSION_ID]

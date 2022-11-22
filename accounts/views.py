@@ -26,24 +26,15 @@ def signup(request):
         # formT = UserSignUpFormTelegram(request.POST, instance=request.user.profile)
         # and request.recaptcha_is_valid
         if form.is_valid() :  
-            
             user = form.save()
-            
             telegram_name = request.POST['telegram_name']
             site = get_current_site(request) 
-            # user = form.save(commit=False)
             user.is_active = False
-            
             user.profile.ip_user = getUserIp(request)
             user.profile.telegram_name = telegram_name
             user.save() 
-
-            print("USER")
-            print(user)
-            print(account_activation_token)
             message = 'http://' + site.domain + '/activate/'+ urlsafe_base64_encode(force_bytes(user.pk)) + "/" + account_activation_token.make_token(user)
             sendRegistrationTelegram(tg_name=telegram_name, tg_message=message)
-            
         else:
             return render(request, 'registration/signup.html', {'formTelegram':UserSignUpFormTelegram,'form': form})
     return render(request, 'registration/signup.html', {'formTelegram':UserSignUpFormTelegram,'form': UserSignUpForm()})

@@ -12,11 +12,11 @@
                 
                     <div class="form-group">
                         {% for field in formTelegram %}
-                            {{field}}
+                            <p>{{field}}</p>
                         {% endfor %}
                         
-                            {% for field in form %}
-                            {{ field }}
+                        {% for field in form %}
+                            <p>{{ field }}</p>
                             {% if field.help_text %}
                             <small class="form-text text-muted">{{ field.help_text|safe }}</small>
                             {% endif %}
@@ -27,9 +27,11 @@
 
                 {{ form.non_field_errors }}
 
-                <p><div class="g-recaptcha" data-sitekey="6LcIs3YiAAAAADEFYnbcAS0iKL-Qy_5LIOV6Ca0f"></div></p>
-                <button type="submit" class="btn btn-primary">Sign Up</button>
+                <p><div class="g-recaptcha" data-sitekey="6LcIs3YiAAAAADEFYnbcAS0iKL-Qy_5LIOV6Ca0f"></div></p>      
+                <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
             </form>
+            <br>
+            <a href="/accounts/login"><button type="submit" class="btn btn-success">Уже есть аккаунт</button></a>
                         
         </div>
     </div>
