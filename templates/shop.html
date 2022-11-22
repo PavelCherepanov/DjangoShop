@@ -23,7 +23,7 @@
                     </ul>
                 </div>
             </div>
-            <form action="{% url 'filter' %}" method="get">
+
 
                 
             
@@ -33,18 +33,33 @@
                 <h6 class="widget-title mb-30">Brands</h6>
 
                 <div class="widget-desc">
-
-                    {% for obj in brands %}
+                    <!-- Single Form Check -->
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="{{obj.id}}" id="{{obj.brand_name}}" name="brand">
-                        <label class="form-check-label" for="{{obj.brand_name}}">{{obj.brand_name}}</label>
+                        <input class="form-check-input" type="checkbox" value="" id="amado">
+                        <label class="form-check-label" for="amado">Amado</label>
                     </div>
-                    {% endfor %}
-                    
+                    <!-- Single Form Check -->
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="ikea">
+                        <label class="form-check-label" for="ikea">Ikea</label>
+                    </div>
+                    <!-- Single Form Check -->
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="furniture">
+                        <label class="form-check-label" for="furniture">Furniture Inc</label>
+                    </div>
+                    <!-- Single Form Check -->
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="factory">
+                        <label class="form-check-label" for="factory">The factory</label>
+                    </div>
+                    <!-- Single Form Check -->
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="artdeco">
+                        <label class="form-check-label" for="artdeco">Artdeco</label>
+                    </div>
                 </div>
             </div>
-                <input type="submit">
-            </form>
             <!-- ##### Single Widget ##### -->
             <div class="widget color mb-50">
                 <!-- Widget Title -->
@@ -124,57 +139,17 @@
                     </div>
                 </div>
 
-                <div class="row">
-                {% for obj in produtcs %}
+                 <div class="row">
+                    {% for obj in products_list %}
                     <!-- Single Product Area -->
                     <div class="col-12 col-sm-6 col-md-12 col-xl-6">
                         <div class="single-product-wrapper">
+
                             <!-- Product Image -->
                             <div class="product-img">
-                                <img src="img/product-img/product1.jpg" alt="">
+                                <img src="{{obj.product_img.url}}" alt="{{obj.product_name}}">
                                 <!-- Hover Thumb -->
-                                <img class="hover-img" src="img/product-img/product2.jpg" alt="">
-                            </div>
-
-                            <!-- Product Description -->
-                            <div class="product-description d-flex align-items-center justify-content-between">
-                                <!-- Product Meta Data -->
-                                <div class="product-meta-data">
-                                    <div class="line"></div>
-                                    <p class="product-price">${{obj.product_price}}</p>
-                                    <a href="product-details.html">
-                                        <h6>{{obj.product_name}}</h6>
-                                    </a>
-                                </div>
-                                <!-- Ratings & Cart -->
-                                <div class="ratings-cart text-right">
-                                    <div class="ratings">
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                    </div>
-                                    <div class="cart">
-                                        <a href="cart.html" data-toggle="tooltip" data-placement="left" title="Add to Cart"><img src="img/core-img/cart.png" alt=""></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    {% endfor %}
-
-                    
-
-                    <!-- Single Product Area -->
-                    <div class="col-12 col-sm-6 col-md-12 col-xl-6">
-                        <div class="single-product-wrapper">
-                            <!-- Product Image -->
-                            <div class="product-img">
-                                <img src="img/product-img/product6.jpg" alt="">
-                                <!-- Hover Thumb -->
-                                <img class="hover-img" src="img/product-img/product1.jpg" alt="">
+                                <img class="hover-img" src="{{obj.product_img.url}}" alt="{{obj.product_name}}">
                             </div>
 
                             <!-- Product Description -->
@@ -187,6 +162,7 @@
                                         <h6>Modern Chair</h6>
                                     </a>
                                 </div>
+
                                 <!-- Ratings & Cart -->
                                 <div class="ratings-cart text-right">
                                     <div class="ratings">
@@ -203,22 +179,8 @@
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-12">
-                        <!-- Pagination -->
-                        <nav aria-label="navigation">
-                            <ul class="pagination justify-content-end mt-50">
-                                <li class="page-item active"><a class="page-link" href="#">01.</a></li>
-                                <li class="page-item"><a class="page-link" href="#">02.</a></li>
-                                <li class="page-item"><a class="page-link" href="#">03.</a></li>
-                                <li class="page-item"><a class="page-link" href="#">04.</a></li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-            </div>
+                     {% endfor %}
+                 </div>
         </div>
     </div>
     <!-- ##### Main Content Wrapper End ##### -->
