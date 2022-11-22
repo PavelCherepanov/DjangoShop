@@ -11,6 +11,7 @@ urlpatterns = [
     path('home/', views.index_page),
     path('product-details/<int:id>', views.product_page, name="product_page"),
     path('cart/', include('cart.urls')),
+    path('checkout/', include('orders.urls')),
     path('thanks/', views.thanks_page, name='thanks_page'),
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/', include('accounts.urls')),

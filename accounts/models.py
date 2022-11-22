@@ -12,8 +12,6 @@ class Profile(models.Model):
     ip_user = models.GenericIPAddressField(default='0.0.0.0')
 
 
-
-
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs):
     if created:

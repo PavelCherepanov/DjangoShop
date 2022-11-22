@@ -32,9 +32,7 @@ def activate(request, uidb64, token):
         user.profile.email_confirmed = True 
         user.save()
         login(request, user)
-        messages.add_message(request, messages.INFO, 'Hi {0}.'.format(request.user))
     else:
-        messages.add_message(request, messages.WARNING, 'Account activation link is invalid.')
         print("Error with token")
 
     return redirect('/home')
