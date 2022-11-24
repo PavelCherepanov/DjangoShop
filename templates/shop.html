@@ -14,7 +14,7 @@
                 <div class="catagories-menu">
                     <ul>
                         {% for obj in CategoryManagement_list %}
-                        <li><a href="#">{{obj.category_name}}</a></li>
+                        <li><a href="{% url 'filter_category' parameter='product_category' id=obj.id%}">{{obj.category_name}}</a></li>
                         {% endfor %}
                     </ul>
                 </div>
@@ -36,6 +36,7 @@
                         <label class="form-check-label" for={{obj.id}}>{{obj.brand_name}}</label>
                     </div>
                     {% endfor %}
+
                 </div>
             </div>
             <!-- ##### Single Widget ##### -->
@@ -46,7 +47,7 @@
                 <div class="widget-desc">
                     <ul class="d-flex">
                         {% for obj in ColorManagement_list %}
-                        <li><a href="#" class="{{obj.color_name_value}}"></a></li>
+                        <li><a href="{% url 'filter_category' parameter='product_color' id=obj.id%}" class="{{obj.color_name_value}}"></a></li>
                         {% endfor %}
                     </ul>
                 </div>
@@ -122,12 +123,13 @@
 
                             <!-- Product Image -->
                             <div class="product-img">
-                                <img src="{{obj.product_img.url}}" alt="{{obj.product_name}}">
-                                <!-- Hover Thumb -->
-                                <div class="hover-content">
-                                <img class="hover-img" src="{{obj.product_img_hover.url}}" alt="{{obj.product_name}}">
-                                </div>
-
+                                <a href="{% url 'product_page' obj.id %}">
+                                    <img src="{{obj.product_img.url}}" alt="{{obj.product_name}}">
+                                    <!-- Hover Thumb -->
+                                    <div class="hover-content">
+                                    <img class="hover-img" src="{{obj.product_img_hover.url}}" alt="{{obj.product_name}}">
+                                    </div>
+                                </a>
                             </div>
 
                             <!-- Product Description -->
